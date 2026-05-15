@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bengali Handwritten OCR — CNN | Babu Middya</title>
+  <meta name="description" content="Deep learning OCR system for Bengali handwritten characters. 84 classes, 166K+ images, 95% validation accuracy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>Babu Middya<span class="logo-bracket">]</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#architecture">Model</a>
+        <a href="#results">Results</a>
+        <a href="#demo">Demo</a>
+        <a href="#code">Code</a>
+      </nav>
+      <a href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN" target="_blank" class="nav-cta">
+        ⭐ GitHub
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="menu">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#overview">Overview</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#architecture">Model</a>
+      <a href="#results">Results</a>
+      <a href="#demo">Demo</a>
+      <a href="#code">Code</a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-blob blob-1"></div>
+      <div class="hero-blob blob-2"></div>
+      <div class="hero-blob blob-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Deep Learning &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; OCR
+      </div>
+
+      <h1 class="hero-title">
+        Bengali Handwritten<br/>
+        <span class="gradient-text">Character Recognition</span>
+      </h1>
+
+      <p class="hero-sub">
+        A custom SE-ResNet CNN that reads handwritten Bengali characters<br/>
+        with <strong>95% validation accuracy</strong> across <strong>84 character classes</strong>.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num" data-target="84">0</span>
+          <span class="hstat-label">Classes</span>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="166">0</span><span class="hstat-suffix">K+</span>
+          <span class="hstat-label">Images</span>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="95">0</span><span class="hstat-suffix">%</span>
+          <span class="hstat-label">Val Accuracy</span>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="90">0</span><span class="hstat-suffix">%</span>
+          <span class="hstat-label">Test Accuracy</span>
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <a href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN" target="_blank" class="btn btn-primary">
+          View on GitHub →
+        </a>
+        <a href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN/releases/tag/v1.0" target="_blank" class="btn btn-outline">
+          ↓ Download Model
+        </a>
+        <a href="#results" class="btn btn-ghost">See Results ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="char-grid" id="charGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       OVERVIEW STRIP
+  ══════════════════════════════════════════ -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Overview</p>
+        <h2 class="section-title">What is this project?</h2>
+      </div>
+
+      <div class="overview-grid">
+        <div class="overview-card reveal">
+          <div class="ov-icon">🔤</div>
+          <h3>The Problem</h3>
+          <p>Bengali is spoken by 230M+ people worldwide. Digitizing handwritten Bengali text automatically is extremely challenging due to the complexity of 84 unique character classes including vowels, consonants, digits, and compound characters.</p>
+        </div>
+        <div class="overview-card reveal">
+          <div class="ov-icon">🧠</div>
+          <h3>The Solution</h3>
+          <p>A custom SE-ResNet architecture with Depthwise Separable Convolutions and Squeeze-and-Excitation blocks, trained on 166K+ labeled images with advanced augmentation including Cutout regularization.</p>
+        </div>
+        <div class="overview-card reveal">
+          <div class="ov-icon">🚀</div>
+          <h3>The Result</h3>
+          <p>95% validation accuracy and 90% test accuracy across all 84 classes. The trained model is publicly available for download via GitHub Releases. A web-based demo is in progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DATASET
+  ══════════════════════════════════════════ -->
+  <section id="dataset" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Dataset</p>
+        <h2 class="section-title">BanglaLekha-Isolated</h2>
+      </div>
+
+      <div class="dataset-layout">
+        <div class="dataset-img-col reveal">
+          <div class="img-card">
+            <img src="assets/dataset.png" alt="BanglaLekha dataset samples" loading="lazy" />
+            <div class="img-caption">Unprocessed samples from BanglaLekha-Isolated Dataset</div>
+          </div>
+        </div>
+
+        <div class="dataset-info-col">
+          <div class="stat-cards-grid">
+            <div class="stat-card reveal">
+              <span class="stat-num teal">166,105</span>
+              <span class="stat-lbl">Total Images</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="stat-num purple">84</span>
+              <span class="stat-lbl">Classes</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="stat-num green">~2,000</span>
+              <span class="stat-lbl">Samples / Class</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="stat-num gold">32×32</span>
+              <span class="stat-lbl">Image Size (px)</span>
+            </div>
+          </div>
+
+          <div class="class-table reveal">
+            <div class="class-row header">
+              <span>Category</span>
+              <span>Count</span>
+              <span>Description</span>
+            </div>
+            <div class="class-row">
+              <span class="pill pill-teal">Digits</span>
+              <span>10</span>
+              <span>Numerals 0 through 9</span>
+            </div>
+            <div class="class-row">
+              <span class="pill pill-purple">Characters</span>
+              <span>50</span>
+              <span>Vowels and consonants</span>
+            </div>
+            <div class="class-row">
+              <span class="pill pill-green">Compound</span>
+              <span>24</span>
+              <span>Conjunct characters</span>
+            </div>
+          </div>
+
+          <div class="split-bar-wrap reveal">
+            <p class="split-title">Dataset Split</p>
+            <div class="split-bar">
+              <div class="split-seg seg-train" style="width:70%">Train 70%</div>
+              <div class="split-seg seg-val"   style="width:10%">Val 10%</div>
+              <div class="split-seg seg-test"  style="width:20%">Test 20%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ARCHITECTURE
+  ══════════════════════════════════════════ -->
+  <section id="architecture" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Architecture</p>
+        <h2 class="section-title">SE-ResNet with Depthwise Separable Conv</h2>
+      </div>
+
+      <div class="arch-layout">
+        <!-- Pipeline -->
+        <div class="pipeline reveal">
+          <div class="pipe-block pipe-input">
+            <div class="pipe-icon">📥</div>
+            <div class="pipe-label">Input</div>
+            <div class="pipe-sub">32×32×1 Grayscale</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-stem">
+            <div class="pipe-icon">🔲</div>
+            <div class="pipe-label">Stem</div>
+            <div class="pipe-sub">Conv2D(32) → BN → ReLU</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-stage">
+            <div class="pipe-icon">📦</div>
+            <div class="pipe-label">Stage 1</div>
+            <div class="pipe-sub">2× SE-Residual Block<br/>64 filters · stride 2</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-stage">
+            <div class="pipe-icon">📦</div>
+            <div class="pipe-label">Stage 2</div>
+            <div class="pipe-sub">3× SE-Residual Block<br/>128 filters · stride 2</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-stage">
+            <div class="pipe-icon">📦</div>
+            <div class="pipe-label">Stage 3</div>
+            <div class="pipe-sub">2× SE-Residual Block<br/>256 filters · stride 2</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-head">
+            <div class="pipe-icon">🧠</div>
+            <div class="pipe-label">Head</div>
+            <div class="pipe-sub">GAP → Dense(256) → Softmax(84)</div>
+          </div>
+          <div class="pipe-arrow">↓</div>
+          <div class="pipe-block pipe-output">
+            <div class="pipe-icon">✅</div>
+            <div class="pipe-label">Output</div>
+            <div class="pipe-sub">84-class prediction</div>
+          </div>
+        </div>
+
+        <!-- Block Detail + Params -->
+        <div class="arch-detail">
+          <div class="detail-card reveal">
+            <h3>SE-Residual Block</h3>
+            <p>Each block uses Depthwise Separable Convolutions (more efficient than standard Conv2D) combined with a Squeeze-and-Excitation (SE) attention mechanism that recalibrates channel-wise feature responses.</p>
+            <div class="code-block">
+<pre>
+x → Conv2D(1×1)           # pointwise expand
+  → DepthwiseConv2D(3×3)  # spatial filter
+  → Conv2D(1×1)           # pointwise compress
+  → BatchNorm → ReLU
+  → SE Block (ratio=16)   # channel attention
+  → Add(skip connection)  # residual
+</pre>
+            </div>
+          </div>
+
+          <div class="detail-card reveal">
+            <h3>Training Configuration</h3>
+            <div class="param-grid">
+              <div class="param"><span>Optimizer</span><strong>Adam</strong></div>
+              <div class="param"><span>Learning Rate</span><strong>1e-3</strong></div>
+              <div class="param"><span>Batch Size</span><strong>128</strong></div>
+              <div class="param"><span>Epochs</span><strong>50 max</strong></div>
+              <div class="param"><span>Loss</span><strong>SparseCategoricalCE</strong></div>
+              <div class="param"><span>ES Patience</span><strong>8 epochs</strong></div>
+              <div class="param"><span>Min LR</span><strong>1e-7</strong></div>
+              <div class="param"><span>LR Factor</span><strong>0.5</strong></div>
+            </div>
+          </div>
+
+          <div class="detail-card reveal">
+            <h3>Data Augmentation</h3>
+            <div class="aug-list">
+              <div class="aug-item"><span class="aug-dot"></span>Rotation ±10°</div>
+              <div class="aug-item"><span class="aug-dot"></span>Width / Height shift 10%</div>
+              <div class="aug-item"><span class="aug-dot"></span>Zoom range 10%</div>
+              <div class="aug-item"><span class="aug-dot"></span>Shear 0.08</div>
+              <div class="aug-item"><span class="aug-dot aug-gold"></span>Custom Cutout — masks 8×8 patch (50% probability)</div>
+              <div class="aug-item"><span class="aug-dot aug-green"></span>Class-index numeric sort fix (critical bug fix)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       RESULTS
+  ══════════════════════════════════════════ -->
+  <section id="results" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Results</p>
+        <h2 class="section-title">Training & Evaluation</h2>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="metric-row">
+        <div class="metric-card reveal">
+          <div class="metric-ring" style="--pct:95; --color:#38bdf8;">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" class="ring-bg"/>
+              <circle cx="50" cy="50" r="42" class="ring-fill" id="ring1"/>
+            </svg>
+            <div class="metric-inner"><span class="metric-val">95%</span><span class="metric-lbl">Val Acc</span></div>
+          </div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-ring" style="--pct:90; --color:#a855f7;">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" class="ring-bg"/>
+              <circle cx="50" cy="50" r="42" class="ring-fill" id="ring2"/>
+            </svg>
+            <div class="metric-inner"><span class="metric-val">90%</span><span class="metric-lbl">Test Acc</span></div>
+          </div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-ring" style="--pct:80; --color:#22c55e;">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" class="ring-bg"/>
+              <circle cx="50" cy="50" r="42" class="ring-fill" id="ring3"/>
+            </svg>
+            <div class="metric-inner"><span class="metric-val">~0.2</span><span class="metric-lbl">Val Loss</span></div>
+          </div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-ring" style="--pct:99; --color:#fbbf24;">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" class="ring-bg"/>
+              <circle cx="50" cy="50" r="42" class="ring-fill" id="ring4"/>
+            </svg>
+            <div class="metric-inner"><span class="metric-val">99%+</span><span class="metric-lbl">Confidence</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graphs -->
+      <div class="graphs-grid">
+        <div class="graph-card reveal">
+          <div class="graph-header">
+            <h3>Accuracy Curve</h3>
+            <div class="graph-legend">
+              <span class="legend-dot teal-bg"></span>Train
+              <span class="legend-dot gold-bg"></span>Validation
+            </div>
+          </div>
+          <img src="assets/accuracy.png" alt="Model Accuracy Curve" loading="lazy" />
+        </div>
+
+        <div class="graph-card reveal">
+          <div class="graph-header">
+            <h3>Loss Curve</h3>
+            <div class="graph-legend">
+              <span class="legend-dot teal-bg"></span>Train
+              <span class="legend-dot gold-bg"></span>Validation
+            </div>
+          </div>
+          <img src="assets/loss.png" alt="Model Loss Curve" loading="lazy" />
+        </div>
+
+        <div class="graph-card graph-full reveal">
+          <div class="graph-header">
+            <h3>Confusion Matrix — 84 Classes</h3>
+            <span class="graph-note">Strong diagonal dominance · Minimal inter-class confusion</span>
+          </div>
+          <img src="assets/confusion.png" alt="Confusion Matrix" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DEMO / PREDICTIONS
+  ══════════════════════════════════════════ -->
+  <section id="demo" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Live Output</p>
+        <h2 class="section-title">Sample Predictions</h2>
+      </div>
+
+      <div class="demo-layout">
+        <div class="demo-img reveal">
+          <img src="assets/prediction.png" alt="Bengali character predictions" loading="lazy" />
+          <div class="demo-overlay">
+            <div class="conf-badge">99.94%</div>
+            <div class="conf-badge">99.99%</div>
+            <div class="conf-badge">100%</div>
+            <div class="conf-badge">99.39%</div>
+          </div>
+        </div>
+
+        <div class="demo-info">
+          <div class="demo-card reveal">
+            <h3>How the predictor works</h3>
+            <ol class="demo-steps">
+              <li><span>1</span>Load grayscale image (any size)</li>
+              <li><span>2</span>Resize to 32×32 pixels</li>
+              <li><span>3</span>Normalize pixels to [0, 1]</li>
+              <li><span>4</span>Reshape to (1, 32, 32, 1)</li>
+              <li><span>5</span>Run through SE-ResNet model</li>
+              <li><span>6</span>Softmax → top class + confidence</li>
+            </ol>
+          </div>
+
+          <div class="demo-card reveal">
+            <h3>Quick Start</h3>
+            <div class="code-block">
+<pre>
+import tensorflow as tf
+import numpy as np
+from PIL import Image
+
+model = tf.keras.models.load_model(
+  "final_bangla_cnn_model.keras"
+)
+
+img = Image.open("char.png")\
+           .convert("L")\
+           .resize((32, 32))
+
+x = np.array(img) / 255.0
+x = x.reshape(1, 32, 32, 1)
+
+pred = model.predict(x)
+cls  = np.argmax(pred)
+conf = np.max(pred) * 100
+
+print(f"Class: {cls}  Conf: {conf:.2f}%")
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       VS CODE SCREENSHOT
+  ══════════════════════════════════════════ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Development</p>
+        <h2 class="section-title">Project in VS Code</h2>
+      </div>
+      <div class="vscode-wrap reveal">
+        <img src="assets/vscode.png" alt="Project in VS Code" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CODE / TECH STACK
+  ══════════════════════════════════════════ -->
+  <section id="code" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Tech Stack</p>
+        <h2 class="section-title">Built With</h2>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card reveal"><div class="tech-icon">🐍</div><h4>Python 3</h4><p>Core language</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">🔶</div><h4>TensorFlow</h4><p>Deep learning framework</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">🧠</div><h4>Keras</h4><p>Model API (Functional)</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">🔢</div><h4>NumPy</h4><p>Array operations</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">📊</div><h4>Matplotlib</h4><p>Training visualization</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">🎨</div><h4>Seaborn</h4><p>Confusion matrix plot</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">🖼️</div><h4>Pillow</h4><p>Image preprocessing</p></div>
+        <div class="tech-card reveal"><div class="tech-icon">⚡</div><h4>Kaggle GPU</h4><p>T4 x2 training</p></div>
+      </div>
+
+      <div class="cta-box reveal">
+        <h3>Explore the full project</h3>
+        <p>Source code, trained model, and notebook all publicly available</p>
+        <div class="cta-btns">
+          <a href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN" target="_blank" class="btn btn-primary">⭐ View on GitHub</a>
+          <a href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN/releases/tag/v1.0" target="_blank" class="btn btn-outline">↓ Download Model v1.0</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bracket">[</span>BM804<span class="logo-bracket">]</span>
+        <p>Babu Middya · Bengali Handwritten OCR</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/BM804" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/babu-middya-965400366" target="_blank">LinkedIn</a>
+        <a href="https://babumiddya.netlify.app" target="_blank">Portfolio</a>
+        <a href="mailto:babumiddya804@gmail.com">Email</a>
+      </div>
+      <p class="footer-copy">© 2026 Babu Middya · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <button id="topBtn" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

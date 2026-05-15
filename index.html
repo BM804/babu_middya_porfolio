@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babu Middya | Software Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAVBAR -->
+<header id="header">
+  <div class="logo">Babu Middya<span>.</span></div>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div id="menuBtn">&#9776;</div>
+</header>
+
+<!-- MOBILE NAV OVERLAY -->
+<div id="mobileNav">
+  <div id="closeBtn">&times;</div>
+  <nav>
+    <a href="#home" onclick="closeMobileNav()">Home</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#skills" onclick="closeMobileNav()">Skills</a>
+    <a href="#projects" onclick="closeMobileNav()">Projects</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="grid-bg"></div>
+  <div class="noise"></div>
+
+  <div class="hero-container">
+
+    <div class="hero-left">
+      <div class="badge">
+        <span class="dot"></span> Available for Work
+      </div>
+
+      <h1>
+        Hi, I'm<br>
+        <span id="typingText" class="gradient-text">Babu Middya</span>
+      </h1>
+
+      <h2 class="subtitle">Software Developer <span class="amp">&</span> ML Enthusiast</h2>
+
+      <p class="hero-desc">
+        Final-year Computer Science & Engineering student passionate about building intelligent systems.
+        Skilled in Python, Django, CNN-based deep learning, and full-stack web development.
+        I turn complex ideas into clean, working code — from handwritten character recognition to responsive web apps.
+      </p>
+
+      <div class="hero-btns">
+        <a href="01_Babu_Middya_Software_Devoloper.pdf" class="btn btn-primary" download>
+          <i class="fas fa-download"></i> Resume
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i> Hire Me
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">90%</span>
+          <span class="stat-label">OCR Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">7.05</span>
+          <span class="stat-label">CGPA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-wrapper">
+        <div class="photo-glow"></div>
+        <div class="photo-box">
+          <div class="ring one"></div>
+          <div class="ring two"></div>
+          <img src="myphoto.png" alt="Babu Middya">
+        </div>
+        <div class="floating-tag tag-python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""> Python
+        </div>
+        <div class="floating-tag tag-ml">
+          <i class="fas fa-brain"></i> ML / CNN
+        </div>
+        <div class="floating-tag tag-django">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt=""> Django
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scroll-hint">
+    <div class="mouse"><div class="wheel"></div></div>
+    <span>Scroll down</span>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section reveal" id="about">
+  <div class="section-label">WHO I AM</div>
+  <h2 class="title">About <span class="gradient-text">Me</span></h2>
+
+  <div class="about-grid">
+    <div class="about-text card">
+      <p>
+        Aspiring Software Developer with strong skills in Python, NumPy, Pandas, and Matplotlib.
+        Experienced in data analysis, data manipulation, and creating clear visualizations.
+      </p>
+      <p>
+        I love building modern websites, solving coding challenges, and continuously improving my
+        technical skills. Quick learner with a passion for real-world problem solving and ML.
+      </p>
+      <div class="about-details">
+        <div class="detail-item">
+          <i class="fas fa-graduation-cap"></i>
+          <div>
+            <strong>B.Tech CSE</strong>
+            <span>Techno Engineering College Banipur · 2022–2026</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Location</strong>
+            <span>Kolkata, West Bengal, India</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-calendar-alt"></i>
+          <div>
+            <strong>Born</strong>
+            <span>September 14, 2004</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="education-timeline card">
+      <h3>Education</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2022 – 2026</span>
+            <h4>B.Tech — CSE</h4>
+            <p>Techno Engineering College Banipur · CGPA: 7.05/10</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2022</span>
+            <h4>Class XII — WBCHSE</h4>
+            <p>Percentage: 90% · Top 10 in class · Scholarship</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2020</span>
+            <h4>Class X — WBBSE</h4>
+            <p>Percentage: 72%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section class="section reveal" id="skills">
+  <div class="section-label">WHAT I KNOW</div>
+  <h2 class="title">Tech Stack <span class="gradient-text">&amp; Skills</span></h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      <h4>Python</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg" alt="Django">
+      <h4>Django</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+      <h4>HTML</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+      <h4>CSS</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+      <h4>JavaScript</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+      <h4>SQL</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+      <h4>GitHub</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+      <h4>NumPy</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original-wordmark.svg" alt="Pandas">
+      <h4>Pandas</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib">
+      <h4>Matplotlib</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="DSA">
+      <h4>DSA</h4>
+    </div>
+
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/4149/4149676.png" alt="Machine Learning">
+      <h4>Machine Learning</h4>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section class="section reveal" id="projects">
+  <div class="section-label">WHAT I BUILT</div>
+  <h2 class="title">Featured <span class="gradient-text">Projects</span></h2>
+
+  <div class="featured-project card">
+    <div class="fp-left">
+      <div class="fp-badge">Featured Project</div>
+      <h3>Handwritten Bangla Character Recognition (CNN)</h3>
+      <p>
+        Built a deep learning OCR system using 166k+ Bengali handwritten images across 84 classes.
+        Trained with CNN achieving 90% accuracy after preprocessing (resizing, normalization, noise reduction).
+      </p>
+      <div class="tech-tags">
+        <span>Python</span><span>CNN</span><span>Deep Learning</span><span>OpenCV</span><span>TensorFlow</span>
+      </div>
+      <div class="project-links">
+        <a class="github-btn" href="https://github.com/BM804/Bengali_Handwritten_OCR_CNN" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a class="demo-btn" href="./bangla_ocr_site/index.html" target="_blank">
+          🚀 Project Details
+        </a>
+      </div>
+    </div>
+    <div class="fp-right">
+      <div class="fp-img-box">
+        <img src="https://t3.ftcdn.net/jpg/19/28/70/26/240_F_1928702653_3SM4ioVbqb1LkxO8BYR8tu8CzlvJVweg.jpg" alt="Bangla OCR">
+        <div class="fp-accuracy">
+          <span class="big">90%</span>
+          <span class="small">Accuracy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row">
+
+    <div class="project-card card">
+      <div class="project-icon">🗂️</div>
+      <h3>Django CRUD App</h3>
+      <p>Student result management system with login, dashboard, and database integration.</p>
+      <div class="tech-tags">
+        <span>Django</span><span>Python</span><span>SQL</span><span>HTML/CSS</span>
+      </div>
+    </div>
+
+    <div class="project-card card">
+      <div class="project-icon">🌐</div>
+      <h3>Portfolio Website</h3>
+      <p>Modern responsive portfolio with CSS animations, mobile-first design and premium UI.</p>
+      <div class="tech-tags">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MINI PROJECTS -->
+  <div class="section-label" style="margin-top:60px;">FOR FUN</div>
+  <h2 class="title" style="margin-bottom:30px;">Mini <span class="gradient-text">Games</span></h2>
+
+  <div class="mini-grid">
+
+    <a class="mini-card card" href="candy_crush/Candy_crush_index.html" target="_blank">
+      <img src="https://w7.pngwing.com/pngs/905/3/png-transparent-candy-crush-saga-candy-crush-jelly-saga-king-android-candy-crush-game-king-heart-thumbnail.png" alt="Candy Crush">
+      <div class="mini-info">
+        <h4>Candy Crush</h4>
+        <span>Play Now →</span>
+      </div>
+    </a>
+
+    <a class="mini-card card" href="PACMAN/index.html" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="PacMan">
+      <div class="mini-info">
+        <h4>PacMan</h4>
+        <span>Play Now →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="section reveal" id="contact">
+  <div class="section-label">GET IN TOUCH</div>
+  <h2 class="title">Contact <span class="gradient-text">Me</span></h2>
+
+  <div class="contact-grid">
+    <div class="contact-card card">
+      <a href="mailto:babumiddya804@gmail.com" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div>
+          <span class="c-label">Email</span>
+          <span class="c-val">babumiddya804@gmail.com</span>
+        </div>
+      </a>
+      <a href="tel:+918327486160" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div>
+          <span class="c-label">Phone</span>
+          <span class="c-val">+91 8327486160</span>
+        </div>
+      </a>
+      <a href="https://github.com/BM804" target="_blank" class="contact-item">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <div>
+          <span class="c-label">GitHub</span>
+          <span class="c-val">github.com/BM804</span>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/babu-middya-965400366" target="_blank" class="contact-item">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div>
+          <span class="c-label">LinkedIn</span>
+          <span class="c-val">babu-middya-965400366</span>
+        </div>
+      </a>
+      <div class="contact-item no-link">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <span class="c-label">Location</span>
+          <span class="c-val">Kolkata, West Bengal, India</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-cta card">
+      <h3>Let's build something great together.</h3>
+      <p>I'm currently open to internship opportunities and freelance projects. Drop me a message and I'll get back within 24 hours.</p>
+      <a href="mailto:babumiddya804@gmail.com" class="btn btn-primary full-width">
+        <i class="fas fa-paper-plane"></i> Send a Message
+      </a>
+      <a href="01_Babu_Middya_Software_Devoloper.pdf" class="btn btn-outline full-width" download>
+        <i class="fas fa-download"></i> Download Resume
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">BM<span>.</span></div>
+    <p>© 2026 Babu Middya · Built with ❤️ using HTML, CSS & JS</p>
+    <div class="footer-links">
+      <a href="https://github.com/BM804" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/babu-middya-965400366" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:babumiddya804@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
