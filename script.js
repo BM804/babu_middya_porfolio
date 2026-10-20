@@ -31,7 +31,9 @@ document.querySelectorAll('a, button, .skill-box, .mini-card').forEach(el => {
 // ===== TYPING ANIMATION =====
 const words = [
   "Babu Middya",
-  "Software Developer",
+  "AI/ML Engineer",
+  "Manual & Automation Tester",
+  "QA Engineer",
   "Full Stack Developer",
   "Python Developer",
   "Django Developer",

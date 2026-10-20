@@ -628,12 +628,67 @@ nav a:hover::after { width: 100%; }
 
 .skill-box:hover h4 { color: var(--white); }
 
+.qa-skill i {
+  font-size: 42px;
+  color: var(--accent);
+}
+
 @keyframes neonMove {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 
 /* ================= PROJECTS ================= */
+.qa-intro {
+  max-width: 850px;
+  margin-bottom: 24px;
+  padding: 28px 32px;
+}
+
+.qa-intro p,
+.qa-card p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.qa-card.card {
+  padding: 30px;
+}
+
+.qa-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.1);
+  font-size: 22px;
+}
+
+.qa-card h3 {
+  margin-bottom: 10px;
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+}
+
+.qa-card .tech-tags {
+  margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+  .qa-grid { grid-template-columns: 1fr; }
+  .qa-intro, .qa-card.card { padding: 22px; }
+}
+
 .featured-project {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -992,4 +1047,25 @@ footer p {
   .mini-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 16px; }
   .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* Multi-project portfolio cards */
+.project-showcase {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+.project-showcase .project-card.card { padding: 28px; }
+.project-showcase .project-links { margin-top: auto; }
+@media (max-width: 900px) {
+  .project-showcase { grid-template-columns: 1fr; }
+}
+
+/* AI/ML hero art */
+.hero {
+  background-image:
+    linear-gradient(90deg, rgba(5,8,16,.48) 0%, rgba(5,8,16,.22) 58%, rgba(5,8,16,.08) 100%),
+    url("portfolio-ai-hero.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

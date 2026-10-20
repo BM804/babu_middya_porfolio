@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AUTOMOLD | Babu Middya</title>
+  <meta name="description" content="Turn an STL model into a reviewable two-part mold concept—with one Python command.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../projects.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="brand" href="../../index.html">Babu Middya<span style="color:var(--cyan)">.</span></a>
+    <a class="back" href="../../index.html#projects">← Back to all projects</a>
+  </div></header>
+  <section class="hero"><div class="wrap">
+    <div class="eyebrow">CAD automation · 3D geometry</div>
+    <h1>AUTOMOLD</h1>
+    <p class="lead">Turn an STL model into a reviewable two-part mold concept—with one Python command.</p>
+    <div class="actions">
+      <a class="button" href="https://github.com/BM804/automatic_Mold_and_2d_partfile_maker" target="_blank" rel="noopener">View GitHub repository ↗</a>
+      <a class="button secondary" href="../../index.html#projects">Portfolio projects</a>
+    </div>
+    <div class="metrics">
+        <span class="metric">STL input</span>
+        <span class="metric">Two mold halves</span>
+        <span class="metric">Alignment pins &amp; sockets</span>
+        <span class="metric">Engineering drawing</span>
+    </div>
+  </div></section>
+  <main class="wrap">
+    <section class="section"><h2>Why I built it</h2><p>Preparing a first-pass mold from a 3D mesh involves repetitive geometry work: splitting the part, cutting cavities, sizing plates, and adding alignment features.</p></section>
+    <section class="section"><h2>What it does</h2><p>AUTOMOLD reads an STL, repairs and validates the mesh where possible, selects a parting plane, creates top and bottom mold halves with cavities and alignment features, then exports a preview assembly and a dimensioned drawing.</p></section>
+    <section class="section"><h2>How it works</h2><ol class="steps">
+          <li>Load and inspect an STL mesh.</li>
+          <li>Choose a mid-height or user-specified parting plane.</li>
+          <li>Create mold plates and subtract the part geometry to form cavities.</li>
+          <li>Add alignment pins and matching clearance holes.</li>
+          <li>Export both mold halves, an exploded STL preview, and a 2D drawing.</li>
+    </ol></section>
+    <section class="section"><h2>Outcome</h2><div class="notice">A command-line prototype that automates repetitive first-pass geometry creation for simple two-part molds. Output is intended for review and prototyping; an engineer still needs to assess draft, undercuts, material shrinkage, and production tolerances.</div></section>
+    <section class="section"><h2>Tools and technologies</h2><div class="stack">
+          <span>Python</span>
+          <span>trimesh</span>
+          <span>Manifold3D</span>
+          <span>NumPy</span>
+          <span>Matplotlib</span>
+          <span>argparse</span>
+    </div></section>
+    <section class="section"><h2>Scope and limitations</h2><p>The parting plane is a geometric choice; the tool does not perform full manufacturability analysis or produce certified production drawings.</p></section>
+    <section class="section"><div class="card"><h3>Explore the source</h3><p>Read the repository for the implementation, setup instructions, and additional project details.</p><div class="actions"><a class="button" href="https://github.com/BM804/automatic_Mold_and_2d_partfile_maker" target="_blank" rel="noopener">Open AUTOMOLD on GitHub ↗</a></div></div></section>
+  </main>
+  <footer><div class="wrap">© 2026 Babu Middya · <a href="../../index.html#projects">Portfolio</a></div></footer>
+</body>
+</html>
